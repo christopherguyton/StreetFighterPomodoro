@@ -2,23 +2,24 @@
 
 var minutes = 25;
 var seconds = 0;
-var startSound = new Audio('./sounds/ranksound.mp3')
-var resetSound = new Audio('./sounds/resetclocksound.mp3')
-var stopSound = new Audio('./sounds/pausesound.mp3')
-var alarmSound = new Audio('/sounds/GameOver.mp3')
-var continueSound = new Audio('./sounds/startsound.mp3')
-var shortBreakSound = new Audio('./sounds/hadouken.mp3')
-var longBreakSound = new Audio('./sounds/shoryuken.mp3')
+var startSound = new Audio('./sounds/ranksound.mp3');
+var resetSound = new Audio('./sounds/resetclocksound.mp3');
+var stopSound = new Audio('./sounds/pausesound.mp3');
+var alarmSound = new Audio('/sounds/GameOver.mp3');
+var continueSound = new Audio('./sounds/startsound.mp3');
+var shortBreakSound = new Audio('./sounds/hadouken.mp3');
+var longBreakSound = new Audio('./sounds/shoryuken.mp3');
+var clock = document.title;
 
 
 //event listeners
-
 document.getElementById('start-button').addEventListener('click', startClock)
 document.getElementById('reset-button').addEventListener('click', resetClock)
 document.getElementById('stop-button').addEventListener('click', stopClock);
 document.getElementById('continue-button').addEventListener('click', continueClock);
 document.getElementById('short-break').addEventListener('click', shortBreak);
 document.getElementById('long-break').addEventListener('click', longBreak);
+
 
 //Pomodoro Functions
 
@@ -38,7 +39,6 @@ function startClock() {
     document.getElementById('short-break').removeEventListener('click', shortBreak)
     minutes_interval = setInterval(minutesTimer, 60000);
     seconds_interval = setInterval(secondsTimer, 1000);
-
     function minutesTimer() {
         minutes = minutes - 1;
         document.getElementById('minutes').innerHTML = minutes;
@@ -48,16 +48,25 @@ function startClock() {
         seconds = seconds - 1;
         document.getElementById('seconds').innerHTML = seconds;
         if (seconds <= 0) {
-            seconds = 60;
-        }
         if (seconds <= 0 && minutes <= 0) {
-            alarmSound.play()
+            alarmSound.play();
+            document.getElementById('short-break').addEventListener('click', shortBreak);
+            document.getElementById('long-break').addEventListener('click', longBreak);
             clearInterval(minutes_interval);
             clearInterval(seconds_interval);
-
         }
+        seconds = 60;
+        }
+
     }
 }
+
+function stopClock() {
+    stopSound.play();
+    clearInterval(seconds_interval);
+    clearInterval(minutes_interval);
+}
+
 
 function resetClock() {
     clearInterval(seconds_interval);
@@ -86,21 +95,14 @@ function continueClock() {
         seconds = seconds - 1;
         document.getElementById('seconds').innerHTML = seconds;
         if (seconds <= 0) {
-            seconds = 60;
-        }
         if (seconds <= 0 && minutes <= 0) {
             alarmSound.play()
             clearInterval(minutes_interval);
             clearInterval(seconds_interval);
         }
+        seconds = 60;
+        }
     }
-}
-
-function stopClock() {
-    stopSound.play();
-    clearInterval(seconds_interval);
-    clearInterval(minutes_interval);
-
 }
 
 
@@ -164,7 +166,7 @@ function longBreak() {
             seconds = 60;
         }
         if (seconds <= 0 && minutes <= 0) {
-            alarmSound.play()
+            alarmSound.play();
             clearInterval(minutes_interval);
             clearInterval(seconds_interval);
             document.getElementById('short-break').addEventListener('click', shortBreak);
@@ -172,4 +174,5 @@ function longBreak() {
             document.getElementById('start-button').addEventListener('click', startClock);
         }
     }
+
 }

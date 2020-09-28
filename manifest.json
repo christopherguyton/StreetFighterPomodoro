@@ -1,0 +1,13 @@
+
+{
+    "name": "Street Fighter Pomodoro Clock",
+    "short_name": "SF Pomorodoro",
+    "lang": "en-US",
+    "start_url": "/streetfighterpomodoro.netlify.app/",
+    "display": "standalone",
+
+    "permissions": [
+        "<all_urls>",
+        "tabs"
+    ]
+  }
