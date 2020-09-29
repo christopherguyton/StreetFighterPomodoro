@@ -2,8 +2,8 @@
 
 var minutes = 25;
 var seconds = 0;
-var startSound = new Audio('./sounds/ranksound.mp3');
-var resetSound = new Audio('./sounds/resetclocksound.mp3');
+var startSound = new Audio('./sounds/resetclocksound.mp3');
+var resetSound = new Audio('./sounds/ranksound.mp3');
 var stopSound = new Audio('./sounds/pausesound.mp3');
 var alarmSound = new Audio('/sounds/GameOver.mp3');
 var continueSound = new Audio('./sounds/startsound.mp3');
