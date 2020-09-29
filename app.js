@@ -3,6 +3,10 @@
 var minutes = 25;
 var seconds = 0;
 var cycles = 0;
+var clock = document.title;
+ryuSprite = document.getElementById('ryu-sprite')
+
+//Clock Sounds
 var startSound = new Audio('./sounds/resetclocksound.mp3');
 var resetSound = new Audio('./sounds/ranksound.mp3');
 var stopSound = new Audio('./sounds/pausesound.mp3');
@@ -10,8 +14,8 @@ var alarmSound = new Audio('/sounds/GameOver.mp3');
 var continueSound = new Audio('./sounds/startsound.mp3');
 var shortBreakSound = new Audio('./sounds/hadouken.mp3');
 var longBreakSound = new Audio('./sounds/shoryuken.mp3');
-var clock = document.title;
-ryuSprite = document.getElementById('ryu-sprite')
+var resetCyclesSound = new Audio('./sounds/tatsu.mp3');
+
 
 //event listeners
 document.getElementById('start-button').addEventListener('click', startClock)
@@ -62,6 +66,7 @@ function startClock() {
         seconds = 60;
         cycles++
         document.getElementById('cycle-number').innerHTML = cycles;
+        document.getElementById('start-button').addEventListener('click', startClock)
         }
 
     }
@@ -106,6 +111,7 @@ function continueClock() {
         if (seconds <= 0) {
         if (seconds <= 0 && minutes <= 0) {
             alarmSound.play()
+            document.getElementById('start-button').addEventListener('click', startClock)
             clearInterval(minutes_interval);
             clearInterval(seconds_interval);
         }
@@ -148,6 +154,7 @@ function shortBreak() {
             ryuSprite.src = './Images/ryu-fine.png'
         }
         seconds = 60;
+        document.getElementById('start-button').addEventListener('click', startClock)
     }
     }
 }
@@ -185,6 +192,7 @@ function longBreak() {
             ryuSprite.src = './Images/ryu-fine.png'
         }
         seconds = 60;
+        document.getElementById('start-button').addEventListener('click', startClock)
     }
     }
 
@@ -196,5 +204,6 @@ function resetCycles() {
     if (cycles >= 1) {
     cycles = 0;
     document.getElementById('cycle-number').innerHTML = cycles
+    resetCyclesSound.play();
     }
 }
