@@ -10,7 +10,7 @@ var continueSound = new Audio('./sounds/startsound.mp3');
 var shortBreakSound = new Audio('./sounds/hadouken.mp3');
 var longBreakSound = new Audio('./sounds/shoryuken.mp3');
 var clock = document.title;
-
+ryuSprite = document.getElementById('ryu-sprite')
 
 //event listeners
 document.getElementById('start-button').addEventListener('click', startClock)
@@ -54,6 +54,7 @@ function startClock() {
             document.getElementById('long-break').addEventListener('click', longBreak);
             clearInterval(minutes_interval);
             clearInterval(seconds_interval);
+            ryuSprite.src = './Images/ryu-fine.png'
         }
         seconds = 60;
         }
@@ -79,6 +80,7 @@ function resetClock() {
     document.getElementById('start-button').addEventListener('click', startClock)
     document.getElementById('short-break').addEventListener('click', shortBreak);
     document.getElementById('long-break').addEventListener('click', longBreak)
+    ryuSprite.src = './Images/ryu-continue.gif'
 }
 
 function continueClock() {
@@ -128,8 +130,7 @@ function shortBreak() {
         seconds = seconds - 1;
         document.getElementById('seconds').innerHTML = seconds;
         if (seconds <= 0) {
-            seconds = 60;
-        }
+
         if (seconds <= 0 && minutes <= 0) {
             alarmSound.play()
             clearInterval(minutes_interval);
@@ -137,7 +138,10 @@ function shortBreak() {
             document.getElementById('short-break').addEventListener('click', shortBreak);
             document.getElementById('long-break').addEventListener('click', longBreak);
             document.getElementById('start-button').addEventListener('click', startClock);
+            ryuSprite.src = './Images/ryu-fine.png'
         }
+        seconds = 60;
+    }
     }
 }
 
@@ -147,7 +151,7 @@ function longBreak() {
     longBreakSound.play();
     document.getElementById('long-break').removeEventListener('click', longBreak)
     document.getElementById('short-break').removeEventListener('click', shortBreak)
-    var minutes = 9;
+    var minutes = 10;
     var seconds = 59;
     document.getElementById('minutes').innerHTML = minutes;
     document.getElementById('seconds').innerHTML = seconds;
@@ -163,8 +167,7 @@ function longBreak() {
         seconds = seconds - 1;
         document.getElementById('seconds').innerHTML = seconds;
         if (seconds <= 0) {
-            seconds = 60;
-        }
+    
         if (seconds <= 0 && minutes <= 0) {
             alarmSound.play();
             clearInterval(minutes_interval);
@@ -172,7 +175,10 @@ function longBreak() {
             document.getElementById('short-break').addEventListener('click', shortBreak);
             document.getElementById('long-break').addEventListener('click', longBreak);
             document.getElementById('start-button').addEventListener('click', startClock);
+            ryuSprite.src = './Images/ryu-fine.png'
         }
+        seconds = 60;
+    }
     }
 
 }
