@@ -4,19 +4,22 @@ body {
 
 .clock-container {
     text-align: center;
-    margin-top: 200px;
+    justify-content: center;
+    align-content: center;
+    margin-top: 0px;
     background-color: antiquewhite;
     border-radius: 20px;
 }
 
-
 .button-container1 {
     margin-top: 10px;
     text-align: center;
+    margin-right:50px;
 }
 
 .button-container2 {
     margin-top: 10px;
+    margin-right: 140px;
     text-align: center;
 }
 
@@ -30,3 +33,12 @@ body {
 .copyright {
     color: white;
 }
+
+.cycle-text {
+    padding-right: 10px;
+}
+
+.timer-text {
+    padding-right: 10px;
+}
+

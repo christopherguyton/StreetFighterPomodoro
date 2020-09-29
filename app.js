@@ -2,6 +2,7 @@
 
 var minutes = 25;
 var seconds = 0;
+var cycles = 0;
 var startSound = new Audio('./sounds/resetclocksound.mp3');
 var resetSound = new Audio('./sounds/ranksound.mp3');
 var stopSound = new Audio('./sounds/pausesound.mp3');
@@ -19,6 +20,7 @@ document.getElementById('stop-button').addEventListener('click', stopClock);
 document.getElementById('continue-button').addEventListener('click', continueClock);
 document.getElementById('short-break').addEventListener('click', shortBreak);
 document.getElementById('long-break').addEventListener('click', longBreak);
+document.getElementById('reset-cycles').addEventListener('click', resetCycles)
 
 
 //Pomodoro Functions
@@ -26,12 +28,15 @@ document.getElementById('long-break').addEventListener('click', longBreak);
 function defaultTiming() {
     document.getElementById('minutes').innerHTML = minutes;
     document.getElementById('seconds').innerHTML = seconds;
+    document.getElementById('cycle-number').innerHTML = cycles;
 }
 
 function startClock() {
     startSound.play();
     minutes = 24;
     seconds = 59;
+    cycles++
+    document.getElementById('cycle-number').innerHTML = cycles;
     document.getElementById('minutes').innerHTML = minutes;
     document.getElementById('seconds').innerHTML = seconds;
     document.getElementById('start-button').removeEventListener('click', startClock)
@@ -181,4 +186,13 @@ function longBreak() {
     }
     }
 
+}
+
+//Reset Cycles
+
+function resetCycles() {
+    if (cycles >= 1) {
+    cycles = 0;
+    document.getElementById('cycle-number').innerHTML = cycles
+    }
 }

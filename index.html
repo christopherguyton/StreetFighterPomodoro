@@ -9,29 +9,43 @@
     <link rel="manifest" href="manifest.json">
 </head>
 <body onload="defaultTiming()">
- <div class="container clock-container">
+    <div class="container-fluid clock-container">
+ <div class="row">
+     <div class="col">
 <h1 class="title"><span class="street-fighter"><img src="Images/Street_Fighter_Logo.png" alt="Logo"></span>
 Pomodoro Timer</h1>
+<img src="images/ryu-continue.gif" alt="ryu-continue" id="ryu-sprite" width=25%>
+</div>
+
+</div>
+<div class="container-fluid timer">
+    <div class="row">
+            <h2 class="timer-text">Timer: </h2>
+                <h2 class="minutes" id="minutes"></h2>
+                <h2 class="colon">:</h2>
+                <h2 class="seconds"  id="seconds"></h2>
+                <div class="col button-container1">
+                    <button class="start-clock btn btn-success" id="start-button">Start Clock</button>
+                    <button class="reset-clock btn btn-primary" id="reset-button">Reset Clock</button>
+                    <button class="stop-clock btn btn-danger" id="stop-button">Stop Clock</button>
+                    <button class="continue-clock btn btn-warning" id='continue-button'>Resume Clock</button>
+                </div>
+    </div>
+    </div>
+<div class="container-fluid cycle">
 <div class="row">
-    <div class="col-md-9">
-<img src="images/ryu-continue.gif" alt="ryu-continue"  id="ryu-sprite" width=20% >
+    <h2 class="cycle-text">Cycles: </h2>
+    <h2 class="cycle-number" id="cycle-number"></h2>
+    <div class="container button-container2">
+        <button class="start-clock btn btn-info" id="long-break">Long Break</button>
+        <button class="reset-clock btn btn-info" id="short-break">Short Break</button>
+        <button class="reset-cycles btn btn-info" id="reset-cycles">Reset Cycles</button>
+    </div>
 </div>
-    <h2 class="minutes" id="minutes"></h2>
-    <h2 class="colon">:</h2>
-    <h2 class="seconds"  id="seconds"></h2>
 </div>
+
 </div>
-<div class="container button-container1">
-    <button class="start-clock btn btn-success" id="start-button">Start Clock</button>
-    <button class="reset-clock btn btn-primary" id="reset-button">Reset Clock</button>
-    <button class="stop-clock btn btn-danger" id="stop-button">Stop Clock</button>
-    <button class="continue-clock btn btn-warning" id='continue-button'>Resume Clock</button>
-</div>
-<div class="container button-container2">
-    <button class="start-clock btn btn-info" id="long-break">Long Break</button>
-    <button class="reset-clock btn btn-info" id="short-break">Short Break</button>
-</div>
-<div class="container">
+<div class="container-fluid">
     <h4 class="copyright">Created by Mister Behavior</h4>
 </div>
 
