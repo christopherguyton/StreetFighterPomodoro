@@ -33,8 +33,8 @@ function defaultTiming() {
 
 function startClock() {
     startSound.play();
-    minutes = 0;
-    seconds = 5;
+    minutes = 24;
+    seconds = 59;
     document.getElementById('minutes').innerHTML = minutes;
     document.getElementById('seconds').innerHTML = seconds;
     document.getElementById('start-button').removeEventListener('click', startClock)
