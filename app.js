@@ -33,10 +33,8 @@ function defaultTiming() {
 
 function startClock() {
     startSound.play();
-    minutes = 24;
-    seconds = 59;
-    cycles++
-    document.getElementById('cycle-number').innerHTML = cycles;
+    minutes = 0;
+    seconds = 5;
     document.getElementById('minutes').innerHTML = minutes;
     document.getElementById('seconds').innerHTML = seconds;
     document.getElementById('start-button').removeEventListener('click', startClock)
@@ -62,6 +60,8 @@ function startClock() {
             ryuSprite.src = './Images/ryu-fine.png'
         }
         seconds = 60;
+        cycles++
+        document.getElementById('cycle-number').innerHTML = cycles;
         }
 
     }
