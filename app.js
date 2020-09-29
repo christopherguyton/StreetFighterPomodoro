@@ -71,6 +71,8 @@ function stopClock() {
     stopSound.play();
     clearInterval(seconds_interval);
     clearInterval(minutes_interval);
+    document.getElementById('short-break').addEventListener('click', shortBreak);
+document.getElementById('long-break').addEventListener('click', longBreak);
 }
 
 
@@ -156,7 +158,7 @@ function longBreak() {
     longBreakSound.play();
     document.getElementById('long-break').removeEventListener('click', longBreak)
     document.getElementById('short-break').removeEventListener('click', shortBreak)
-    var minutes = 9;
+    var minutes = 14;
     var seconds = 59;
     document.getElementById('minutes').innerHTML = minutes;
     document.getElementById('seconds').innerHTML = seconds;
