@@ -151,7 +151,7 @@ function longBreak() {
     longBreakSound.play();
     document.getElementById('long-break').removeEventListener('click', longBreak)
     document.getElementById('short-break').removeEventListener('click', shortBreak)
-    var minutes = 10;
+    var minutes = 9;
     var seconds = 59;
     document.getElementById('minutes').innerHTML = minutes;
     document.getElementById('seconds').innerHTML = seconds;
