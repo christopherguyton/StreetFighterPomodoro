@@ -19,9 +19,6 @@ var resetCyclesSound = new Audio('./sounds/tatsu.mp3');
 
 //event listeners
 document.getElementById('start-button').addEventListener('click', startClock)
-document.getElementById('reset-button').addEventListener('click', resetClock)
-document.getElementById('stop-button').addEventListener('click', stopClock);
-document.getElementById('continue-button').addEventListener('click', continueClock);
 document.getElementById('short-break').addEventListener('click', shortBreak);
 document.getElementById('long-break').addEventListener('click', longBreak);
 document.getElementById('reset-cycles').addEventListener('click', resetCycles)
@@ -37,6 +34,9 @@ function defaultTiming() {
 
 function startClock() {
     startSound.play();
+document.getElementById('reset-button').addEventListener('click', resetClock)
+document.getElementById('stop-button').addEventListener('click', stopClock);
+document.getElementById('continue-button').addEventListener('click', continueClock);
     minutes = 24;
     seconds = 59;
     document.getElementById('minutes').innerHTML = minutes;
@@ -82,6 +82,9 @@ document.getElementById('long-break').addEventListener('click', longBreak);
 
 
 function resetClock() {
+    document.getElementById('reset-button').removeEventListener('click', resetClock)
+    document.getElementById('stop-button').removeEventListener('click', stopClock);
+    document.getElementById('continue-button').removeEventListener('click', continueClock);
     clearInterval(seconds_interval);
     clearInterval(minutes_interval)
     resetSound.play();
@@ -114,6 +117,9 @@ function continueClock() {
             document.getElementById('start-button').addEventListener('click', startClock)
             clearInterval(minutes_interval);
             clearInterval(seconds_interval);
+            ryuSprite.src = './Images/ryu-fine.png'
+            cycles++
+            document.getElementById('cycle-number').innerHTML = cycles;
         }
         seconds = 60;
         }
@@ -125,6 +131,8 @@ function continueClock() {
 
 function shortBreak() {
     shortBreakSound.play();
+    ryuSprite.src = './Images/ryu-fine.png'
+    document.getElementById('start-button').removeEventListener('click', startClock)
     document.getElementById('long-break').removeEventListener('click', longBreak)
     document.getElementById('short-break').removeEventListener('click', shortBreak)
     var minutes = 4;
@@ -151,7 +159,6 @@ function shortBreak() {
             document.getElementById('short-break').addEventListener('click', shortBreak);
             document.getElementById('long-break').addEventListener('click', longBreak);
             document.getElementById('start-button').addEventListener('click', startClock);
-            ryuSprite.src = './Images/ryu-fine.png'
         }
         seconds = 60;
         document.getElementById('start-button').addEventListener('click', startClock)
@@ -163,6 +170,8 @@ function shortBreak() {
 
 function longBreak() {
     longBreakSound.play();
+    ryuSprite.src = './Images/ryu-fine.png'
+    document.getElementById('start-button').removeEventListener('click', startClock)
     document.getElementById('long-break').removeEventListener('click', longBreak)
     document.getElementById('short-break').removeEventListener('click', shortBreak)
     var minutes = 14;
@@ -202,8 +211,10 @@ function longBreak() {
 
 function resetCycles() {
     if (cycles >= 1) {
+     ryuSprite.src = './Images/ryu-fine.png'
     cycles = 0;
     document.getElementById('cycle-number').innerHTML = cycles
     resetCyclesSound.play();
     }
 }
+
