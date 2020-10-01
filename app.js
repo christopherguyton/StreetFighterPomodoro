@@ -62,10 +62,10 @@ function startClock() {
             clearInterval(minutes_interval);
             clearInterval(seconds_interval);
             ryuSprite.src = './Images/ryu-fine.png'
+            cycles++
+            document.getElementById('cycle-number').innerHTML = cycles;
         }
         seconds = 60;
-        cycles++
-        document.getElementById('cycle-number').innerHTML = cycles;
         document.getElementById('start-button').addEventListener('click', startClock)
         }
 
