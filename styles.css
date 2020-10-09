@@ -42,3 +42,6 @@ body {
     padding-right: 10px;
 }
 
+.current-task {
+    color: green
+}
