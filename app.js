@@ -118,6 +118,7 @@ function continueClock() {
         if (seconds <= 0 && minutes <= 0) {
             alarmSound.play()
             document.getElementById('start-button').addEventListener('click', startClock)
+            document.getElementById('reset-button').addEventListener('click', resetClock)
             clearInterval(minutes_interval);
             clearInterval(seconds_interval);
             ryuSprite.src = './Images/ryu-fine.png'
