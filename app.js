@@ -7,6 +7,9 @@ var clock = document.title;
 ryuSprite = document.getElementById('ryu-sprite');
 taskInput = document.getElementById('user-added-task')
 taskButton = document.getElementById('submit-task');
+clearBtn = document.getElementById('clear-btn');
+currentTask  = document.getElementById('current-task');
+
 
 //Clock Sounds
 var startSound = new Audio('./sounds/resetclocksound.mp3');
@@ -25,6 +28,8 @@ document.getElementById('short-break').addEventListener('click', shortBreak);
 document.getElementById('long-break').addEventListener('click', longBreak);
 document.getElementById('reset-cycles').addEventListener('click', resetCycles)
 taskButton.addEventListener('click', assignTask);
+clearBtn.addEventListener('click', clearTask);
+
 
 
 //Pomodoro Functions
@@ -225,6 +230,12 @@ function resetCycles() {
 //Display Task
 
 function assignTask() {
-  document.getElementById('current-task').innerHTML = taskInput.value;
+ currentTask.innerHTML  = taskInput.value;
   taskInput.value = '';
+}
+
+//clear task
+
+function clearTask() {
+  currentTask.innerHTML  = '';
 }
