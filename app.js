@@ -9,6 +9,7 @@ taskInput = document.getElementById('user-added-task')
 taskButton = document.getElementById('submit-task');
 clearBtn = document.getElementById('clear-btn');
 currentTask  = document.getElementById('current-task');
+stillWorking = document.querySelector('.empty')
 
 
 //Clock Sounds
@@ -42,6 +43,7 @@ function defaultTiming() {
 
 function startClock() {
     startSound.play();
+    ryuSprite.src = './Images/ryu-continue.gif'
 document.getElementById('reset-button').addEventListener('click', resetClock)
 document.getElementById('stop-button').addEventListener('click', stopClock);
 document.getElementById('continue-button').addEventListener('click', continueClock);
@@ -72,6 +74,7 @@ document.getElementById('continue-button').addEventListener('click', continueClo
             ryuSprite.src = './Images/ryu-fine.png'
             cycles++
             document.getElementById('cycle-number').innerHTML = cycles;
+            
         }
         seconds = 60;
         document.getElementById('start-button').addEventListener('click', startClock)
@@ -224,6 +227,7 @@ function resetCycles() {
     cycles = 0;
     document.getElementById('cycle-number').innerHTML = cycles
     resetCyclesSound.play();
+    currentTask.innerHTML  = '';
     }
 }
 
@@ -231,7 +235,7 @@ function resetCycles() {
 
 function assignTask() {
  currentTask.innerHTML  = taskInput.value;
-  taskInput.value = '';
+taskInput.value = '';
 }
 
 //clear task
